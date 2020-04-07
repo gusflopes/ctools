@@ -9,6 +9,9 @@ import Settings from '../app/settings'
 import Billing from '../app/billing'
 
 const App = () => {
+
+  // All the logic should be handled here !?
+  // Don't go nuts with a lot of function
   if (!isAuthenticated()) {
     login()
     return <p>Redirecionando para login...</p>
@@ -31,7 +34,7 @@ const App = () => {
       </nav>
       <Router>
         <Home path="/app" user={user} />
-        <Settings path="/app/settings" />
+        <Settings path="/app/settings" user={user} />
         <Billing path="/app/billing" />
       </Router>
     </>
