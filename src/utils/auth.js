@@ -1,5 +1,5 @@
 import auth0 from "auth0-js"
-import { navigate } from 'gatsby'
+import { navigate } from "gatsby"
 
 const isBrowser = typeof window !== "undefined"
 
@@ -23,7 +23,7 @@ let user = {}
 
 export const isAuthenticated = () => {
   if (!isBrowser) {
-    return;
+    return
   }
 
   return localStorage.getItem("isLoggedIn") === "true"
@@ -34,6 +34,7 @@ export const login = () => {
     return
   }
 
+  if (window.localStorage.getItem("requestPath") === null) window.localStorage.setItem("requestPath", window.location.pathname)
   auth.authorize()
 }
 
@@ -51,22 +52,29 @@ const setSession = (cb = () => { }) => (err, authResult) => {
     tokens.expiresAt = expiresAt
     user = authResult.idTokenPayload
     localStorage.setItem("isLoggedIn", true)
-    navigate("/app")
+    let requestPath = window.localStorage.getItem("requestPath")
+    if (requestPath) {
+      window.localStorage.removeItem("requestPath")
+      navigate(requestPath)
+    }
     cb()
   }
 }
 
+export const silentAuth = callback => {
+  if (!isAuthenticated()) {
+    return callback()
+  }
+  if (window.localStorage.getItem("requestPath") === null) window.localStorage.setItem("requestPath", window.location.pathname)
+  auth.checkSession({}, setSession(callback))
+}
+
 export const handleAuthentication = () => {
   if (!isBrowser) {
-    return;
+    return
   }
 
   auth.parseHash(setSession())
-}
-
-export const silentAuth = callback => {
-  if (!isAuthenticated()) return callback()
-  auth.checkSession({}, setSession(callback))
 }
 
 export const getProfile = () => {
