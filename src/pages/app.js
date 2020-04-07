@@ -3,11 +3,10 @@ import { Router } from "@reach/router"
 import { login, logout, isAuthenticated, getProfile } from '../utils/auth'
 import { Link } from "gatsby"
 
-const Home = ({ user }) => {
-  return <p>Olá, {user.name ? user.name : "amigo"}!</p>
-}
-const Settings = () => <p>Settings</p>
-const Billing = () => <p>Billing</p>
+// Pages
+import Home from '../app'
+import Settings from '../app/settings'
+import Billing from '../app/billing'
 
 const App = () => {
   if (!isAuthenticated()) {
