@@ -7,6 +7,7 @@ import { Link } from "gatsby"
 import Home from '../app'
 import Settings from '../app/settings'
 import Billing from '../app/billing'
+import ApiExample from '../app/api-example'
 
 const App = () => {
 
@@ -25,6 +26,7 @@ const App = () => {
         <Link to="/app">Home</Link>{" "}
         <Link to="/app/settings">Settings</Link>{" "}
         <Link to="/app/billing">Billing</Link>{" "}
+        <Link to="/app/github">GitHub Profile</Link>{" "}
         <a href="#logout" onClick={e => {
           logout()
           e.preventDefault()
@@ -36,6 +38,7 @@ const App = () => {
         <Home path="/app" user={user} />
         <Settings path="/app/settings" user={user} />
         <Billing path="/app/billing" />
+        <ApiExample path="/app/github" user={user} />
       </Router>
     </>
   )
