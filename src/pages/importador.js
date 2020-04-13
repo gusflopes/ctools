@@ -4,9 +4,13 @@ import { Layout } from '../components/layout'
 import axios from 'axios';
 import MyDropZone from '../components/dropzone';
 import { toast } from 'react-toastify'
-import { Container, Row, Col, FormGroup, FormLabel, FormControl, FormText, Button } from 'react-bootstrap'
+import { Row, Col, FormGroup, FormLabel, FormControl, FormText, Button } from 'react-bootstrap'
 // <iframe width="560" height="315" src="https://www.youtube.com/embed/w9TKHsKNlPI?start=3" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
+import {xls2dom} from '../lib/pastedExcelParser'
+import {generateOutput} from '../lib/generateOutput'
+import {importExcel} from '../lib/handleFile'
+import {base64ToArrayBuffer, saveByteArray} from '../lib/exportFile'
 
 export default () => {
   const [file, setFile] = useState();
@@ -22,19 +26,43 @@ export default () => {
       return toast.error('Formato não suportado. Utilize a planilha exemplo ou o formulário.');
     }
     setFile(newFile);
-    // Uncomment all lines in this function
-    // const response = await importExcel(newFile); // voltar  Interface
-    alert('need to fix')
-    // if (process.env.NODE_ENV === 'development') console.log('final', response);
-    alert('need to fix')
-    // return setImported(response)
+    const response = await importExcel(newFile); // voltar  Interface
+    if (process.env.NODE_ENV === 'development') console.log('final', response);
+    return setImported(response)
   }
 
   async function handleSubmit(e) {
-    alert('handleSubmit')
+    // testing(cnpj, user, lancamentos)
+    if (!lancamentos && !file) return toast.error('Você deve importar um arquivo ou preencher o campo Lançamentos Contábeis.')
+    if (lancamentos) {
+      try {
+        const response = await xls2dom(lancamentos);
+        const {id, data, valor, debito, credito, historico} = response[0]
+        if (!id || !data || !valor || !debito || !credito || !historico) throw new Error('testando!')
+        return setImported(response);
+      } catch (err) {
+        toast.error('Erro na importação: Você deve colar a planilha no formulário ou importar o arquivo.')
+        if (process.env.NODE_ENV) console.log(err);
+      }
+    }
+    if (file) {
+      return toast.error('Arquivo xlsx já importado. Clique em exportar.')
+    }
   }
   async function handleExport(e) {
-    alert('handleExport')
+    // if (!file) console.log('Não foram importados arquivos...')
+    if (!imported) return toast.error('Você deve importar os dados primeiro!')
+
+      if (!cnpj || !user) return toast.error('Campos Usuário e CNPJ são obrigatórios')
+      // if (imported && cnpj && user) {
+
+        const outputContent = await generateOutput(imported, cnpj, user);
+
+        // New Solution
+        const  base64Output = btoa(outputContent)
+        const arrayBuffer = base64ToArrayBuffer(base64Output);
+        saveByteArray("output.txt", arrayBuffer);
+        return toast.success('Exportação finalizada.');
   }
 
   async function lambdaRequest() {
@@ -86,7 +114,7 @@ export default () => {
           <Button variant="success" size="lg" style={{ margin: '0 30px' }} onClick={handleExport}>Exportar</Button>
         </Col>
         <Col xs={12} sm={12} md={6} lg={6}>
-          <a href="/example.xlsx"><span style={{ display: 'block', textAlign: 'center', alignSelf: 'center' }}>Download Planilha Modelo</span></a>
+          <a href="https://gusflopes-dev-assets.s3.amazonaws.com/ctools/example.xlsx"><span style={{ display: 'block', textAlign: 'center', alignSelf: 'center' }}>Download Planilha Modelo</span></a>
         </Col>
       </Row>
       <Row style={{ marginTop: '30px' }} >
