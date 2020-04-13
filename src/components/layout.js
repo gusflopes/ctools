@@ -1,5 +1,4 @@
 import React from 'react';
-import { ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Container, Navbar, Nav } from 'react-bootstrap'
@@ -11,7 +10,6 @@ export const Layout = ({ children }) => {
   return (
     <>
 
-      <ToastContainer autoClose={3000} />
       <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
         <Link to="/">
           <Navbar.Brand>

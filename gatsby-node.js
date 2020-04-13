@@ -12,6 +12,11 @@ exports.onCreatePage = async ({ page, actions }) => {
     // Update the page.
     createPage(page)
   }
+  if (page.path.match(/^\/app2/)) {
+    page.matchPath = "/app2/*"
+
+    createPage(page)
+  }
 }
 
 exports.onCreateWebpackConfig = ({ stage, loaders, actions }) => {
