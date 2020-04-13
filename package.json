@@ -24,7 +24,10 @@
     "gatsby": "^2.20.12",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
-    "react-player": "^1.15.3"
+    "react-dropzone": "^10.2.2",
+    "react-player": "^1.15.3",
+    "react-toastify": "^5.5.0",
+    "styled-components": "^5.1.0"
   },
   "devDependencies": {
     "http-proxy-middleware": "^1.0.3",
