@@ -10,35 +10,35 @@ export const Layout = ({ children }) => {
   //
   return (
     <>
-    
+
       <ToastContainer autoClose={3000} />
       <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
-          <Link to="/">
-            <Navbar.Brand>
-              <img src="https://upload.wikimedia.org/wikipedia/commons/a/a7/React-icon.svg" width="30" height="30" className="d-inline-block-allign-top" alt="React logo" />
-              {' '}
+        <Link to="/">
+          <Navbar.Brand>
+            <img src="https://upload.wikimedia.org/wikipedia/commons/a/a7/React-icon.svg" width="30" height="30" className="d-inline-block-allign-top" alt="React logo" />
+            {' '}
             CTools: Lançamentos Contábeis
           </Navbar.Brand>
-          </Link>
-          <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-          <Navbar.Collapse id="responsive-navbar-nav">
+        </Link>
+        <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+        <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="mr-auto">
             <Link to="/importador" className="nav-link">Importador Contábil</Link>
             <Link to="/instrucoes" className="nav-link">Instruções</Link>
             <Link to="/" className="nav-link">Sobre</Link>
-            
+
           </Nav>
           <Nav>
             <Link to="/blog" className="nav-link">Blog</Link>
             <Link to="/app" className="nav-link">Área VIP</Link>
           </Nav>
 
-          </Navbar.Collapse>
+        </Navbar.Collapse>
 
       </Navbar>
       <Container id="home" className="App">
-      {children}
-    </Container>
+        {children}
+      </Container>
     </>
   )
 }

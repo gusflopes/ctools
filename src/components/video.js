@@ -1,6 +1,9 @@
 import React from "react"
+
+// className = "video"
+
 export const Video = ({ videoUrl, videoTitle, ...props }) => (
-  <div className="video">
+  <div className="embed-responsive embed-responsive-16by9" >
     <iframe
       src={videoUrl}
       title={videoTitle}
