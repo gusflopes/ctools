@@ -73,7 +73,7 @@ export default () => {
         <Col lg="1" sm="0" />
       </Row>
       <div className="border-top my-4" />
-      <Button variant="success" onClick={lambdaRequest}>Lambda</Button>
+      <Button variant="success" onClick={lambdaRequest}>Lambda Function</Button>
 
 
     </Layout>
