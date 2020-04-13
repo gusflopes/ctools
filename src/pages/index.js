@@ -1,10 +1,11 @@
-import React, {useState} from "react"
+import React, { useState } from "react"
 import { Link } from 'gatsby'
 import { Layout } from '../components/layout'
 import { Video } from '../components/video'
+import { Button } from 'react-bootstrap'
 import axios from 'axios';
 import MyDropZone from '../components/dropzone';
-import { toast} from 'react-toastify'
+import { toast } from 'react-toastify'
 // <iframe width="560" height="315" src="https://www.youtube.com/embed/w9TKHsKNlPI?start=3" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 
@@ -38,8 +39,9 @@ export default () => {
       <p>Hello World</p>
       <Link to="/app">Go to App</Link>{' '}
       <Link to="/blog">Go to Blog</Link>{' '}
-      <button type="button" onClick={lambdaRequest}>Lambda</button>
-      <button type="button" onClick={() => toast.error('Deu certo!?')}>Toast</button>
+      <Link to="/importador">Go to Importador</Link>{' '}
+      <Button variant="primary" onClick={lambdaRequest}>Lambda</Button>
+      <Button variant="primary" onClick={() => toast.error('Deu certo!?')}>Toast</Button>
 
       <MyDropZone file={file} handleFile={handleFile} />
       <Video width="560" height="315" videoUrl="https://www.youtube.com/embed/w9TKHsKNlPI?start=3" videoTitle="CTools" />

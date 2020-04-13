@@ -40,6 +40,7 @@ export const login = () => {
 
 const setSession = (cb = () => { }) => (err, authResult) => {
   if (err) {
+    console.log('pathLocation', window.location.pathname)
     navigate("/")
     cb()
     return
