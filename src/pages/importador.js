@@ -22,6 +22,7 @@ export default () => {
       return toast.error('Formato não suportado. Utilize a planilha exemplo ou o formulário.');
     }
     setFile(newFile);
+    // Uncomment all lines in this function
     // const response = await importExcel(newFile); // voltar  Interface
     alert('need to fix')
     // if (process.env.NODE_ENV === 'development') console.log('final', response);
