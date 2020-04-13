@@ -1,4 +1,4 @@
-import React from "react"
+import React, {useEffect} from "react"
 import { Link, navigate } from 'gatsby'
 import { Layout } from '../components/layout'
 import { Video } from '../components/video'
@@ -8,7 +8,12 @@ import { FaFacebook, FaYoutube, FaLinkedin } from 'react-icons/fa/index.esm'
 import { ContactForm } from '../components/contact';
 
 export default () => {
-  // FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDFDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDFFDFDFFDFDFDFDFGDFFDFFDFFFDDFF
+  useEffect(() => {
+    async function handleNavigate(destination) {
+      navigate(destination)
+    }
+  })
+
   async function lambdaRequest() {
     // fetch("/.netlify/functions/hello")
     //   .then(response => response.json())
@@ -25,8 +30,8 @@ export default () => {
           <h1>CTools</h1>
           <h3>Importar lançamentos contábeis sem complicação</h3>
           <p>A Ferramenta Importação de Lançamentos Contábeis da CTools gera automaticamente o arquivo de importação de Lançamentos Contábeis do Domínio Sistemas a partir de uma simples planilha de Excel.</p>
-          <Button onClick={() => navigate("/instrucoes")} style={{ margin: '15px 8px 15px 0px' }} variant="dark">Como usar</Button>
-          <Button onClick={() => navigate("/importador")} variant="primary">Importar Lançamentos</Button>
+          <Link to="/instrucoes"><Button style={{ margin: '15px 8px 15px 0px' }} variant="dark">Como usar</Button></Link>
+          <Link to="/importador"><Button variant="primary">Importar Lançamentos</Button></Link>
         </Col>
       </Jumbotron>
       <div className="border-top my-4" />
