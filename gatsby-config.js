@@ -30,18 +30,14 @@ module.exports = {
   plugins: [
     `gatsby-plugin-react-helmet`,
     {
-      resolve: `gatsby-plugin-google-analytics`,
+      resolve: `gatsby-plugin-gtag`,
       options: {
-        trackingId: "UA-157787410-2",
-        head: true,
-        exclude: ["/app/**"],
-        pageTransitionDelay: 0,
-        // optimizeId: "",
-        // experimentId: "",
-        // variantId: "",
-        sampleRate: 5,
-        siteSpeedSampleRate: 10,
-        cookieDomain: "ctools.com.br",
+        // your google analytics tracking id
+        trackingId: `UA-157787410-2`,
+        // Puts tracking script in the head instead of the body
+        head: false,
+        // enable ip anonymization
+        anonymize: true,
       },
     },
     `gatsby-plugin-typescript`,
