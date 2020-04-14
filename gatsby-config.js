@@ -29,6 +29,21 @@ module.exports = {
   /* Your site config here */
   plugins: [
     `gatsby-plugin-react-helmet`,
+    {
+      resolve: `gatsby-plugin-google-analytics`,
+      options: {
+        trackingId: "UA-157787410-2",
+        head: false,
+        exclude: "/app/**",
+        pageTransitionDelay: 0,
+        // optimizeId: "",
+        // experimentId: "",
+        // variantId: "",
+        sampleRate: 5,
+        siteSpeedSampleRate: 10,
+        cookieDomain: "ctools.com.br",
+      },
+    },
     `gatsby-plugin-typescript`,
     `gatsby-plugin-styled-components`,
     {
