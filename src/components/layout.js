@@ -23,7 +23,7 @@ export const Layout = ({ children }) => {
           <Nav className="mr-auto">
             <Link to="/app2" className="nav-link">Importador Contábil</Link>
             <Link to="/instrucoes" className="nav-link">Instruções</Link>
-            <Link to="/" className="nav-link">Sobre</Link>
+            <Link to="/sobre" className="nav-link">Sobre</Link>
 
           </Nav>
           <Nav>

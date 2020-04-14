@@ -1,4 +1,4 @@
-import React, {useEffect} from "react"
+import React, { useEffect } from "react"
 import { Link, navigate } from 'gatsby'
 import { Layout } from '../components/layout'
 import { Video } from '../components/video'
@@ -31,7 +31,7 @@ export default () => {
           <h3>Importar lançamentos contábeis sem complicação</h3>
           <p>A Ferramenta Importação de Lançamentos Contábeis da CTools gera automaticamente o arquivo de importação de Lançamentos Contábeis do Domínio Sistemas a partir de uma simples planilha de Excel.</p>
           <Link to="/instrucoes"><Button style={{ margin: '15px 8px 15px 0px' }} variant="dark">Como usar</Button></Link>
-          <Link to="/importador"><Button variant="primary">Importar Lançamentos</Button></Link>
+          <Link to="/app2"><Button variant="primary">Importar Lançamentos</Button></Link>
         </Col>
       </Jumbotron>
       <div className="border-top my-4" />
