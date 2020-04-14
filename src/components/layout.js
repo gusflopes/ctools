@@ -21,7 +21,7 @@ export const Layout = ({ children }) => {
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="mr-auto">
-            <Link to="/importador" className="nav-link">Importador Contábil</Link>
+            <Link to="/app2" className="nav-link">Importador Contábil</Link>
             <Link to="/instrucoes" className="nav-link">Instruções</Link>
             <Link to="/" className="nav-link">Sobre</Link>
 
