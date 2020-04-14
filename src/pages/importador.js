@@ -7,10 +7,10 @@ import { toast } from 'react-toastify'
 import { Row, Col, FormGroup, FormLabel, FormControl, FormText, Button } from 'react-bootstrap'
 // <iframe width="560" height="315" src="https://www.youtube.com/embed/w9TKHsKNlPI?start=3" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-import {xls2dom} from '../lib/pastedExcelParser'
-import {generateOutput} from '../lib/generateOutput'
-import {importExcel} from '../lib/handleFile'
-import {base64ToArrayBuffer, saveByteArray} from '../lib/exportFile'
+import { xls2dom } from '../lib/pastedExcelParser'
+import { generateOutput } from '../lib/generateOutput'
+import { importExcel } from '../lib/handleFile'
+import { base64ToArrayBuffer, saveByteArray } from '../lib/exportFile'
 
 export default () => {
   const [file, setFile] = useState();
@@ -37,7 +37,7 @@ export default () => {
     if (lancamentos) {
       try {
         const response = await xls2dom(lancamentos);
-        const {id, data, valor, debito, credito, historico} = response[0]
+        const { id, data, valor, debito, credito, historico } = response[0]
         if (!id || !data || !valor || !debito || !credito || !historico) throw new Error('testando!')
         return setImported(response);
       } catch (err) {
@@ -53,16 +53,16 @@ export default () => {
     // if (!file) console.log('Não foram importados arquivos...')
     if (!imported) return toast.error('Você deve importar os dados primeiro!')
 
-      if (!cnpj || !user) return toast.error('Campos Usuário e CNPJ são obrigatórios')
-      // if (imported && cnpj && user) {
+    if (!cnpj || !user) return toast.error('Campos Usuário e CNPJ são obrigatórios')
+    // if (imported && cnpj && user) {
 
-        const outputContent = await generateOutput(imported, cnpj, user);
+    const outputContent = await generateOutput(imported, cnpj, user);
 
-        // New Solution
-        const  base64Output = btoa(outputContent)
-        const arrayBuffer = base64ToArrayBuffer(base64Output);
-        saveByteArray("output.txt", arrayBuffer);
-        return toast.success('Exportação finalizada.');
+    // New Solution
+    const base64Output = btoa(outputContent)
+    const arrayBuffer = base64ToArrayBuffer(base64Output);
+    saveByteArray("output.txt", arrayBuffer);
+    return toast.success('Exportação finalizada.');
   }
 
   async function lambdaRequest() {
@@ -73,7 +73,7 @@ export default () => {
     const response = await axios.get('/.netlify/functions/hello')
     console.log(response);
   }
-  return (
+  return typeof window !== 'undefined' && (
     <Layout>
       <Row style={{ marginTop: '15px' }}>
         <Col lg={6} md={6} sm={12} xs={12} >

@@ -1,7 +1,7 @@
-import React, {useState, useEffect} from 'react';
-import {Router} from '@reach/router';
+import React, { useState, useEffect } from 'react';
+import { Router } from '@reach/router';
 import LctosContabeis from '../components/xls2dom'
-import {Layout} from '../components/layout';
+import { Layout } from '../components/layout';
 import { ToastContainer } from 'react-toastify'
 
 
@@ -15,7 +15,9 @@ const AppV2 = () => {
   }, [])
 
   if (!isClient) return null;
-  return (
+
+  // if (!isClient) return null;
+  return typeof window !== 'undefined' && (
     <Layout key={key}>
       <ToastContainer autoClose={3000} />
       <Router basepath="/app2">
