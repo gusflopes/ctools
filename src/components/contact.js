@@ -4,7 +4,7 @@ import { toast } from 'react-toastify'
 
 
 export const ContactForm = () => (
-  <Form name="contact" method="POST" data-netlify-recaptcha="true" data-netlify="true" style={{ padding: '0px 30px' }}>
+  <Form name="contact" method="post" data-netlify-recaptcha="true" data-netlify="true" style={{ padding: '0px 30px' }}>
     <Form.Group controlId="formBasicName">
       <Form.Label>Seu Nome</Form.Label>
       <Form.Control name="name" type="text" placeholder="Digite seu nome..." />
