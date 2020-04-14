@@ -9,8 +9,7 @@ export const Layout = ({ children }) => {
   //
   return (
     <>
-
-      <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
+      <Navbar sticky="top" collapseOnSelect expand="lg" bg="dark" variant="dark">
         <Link to="/">
           <Navbar.Brand>
             <img src="https://upload.wikimedia.org/wikipedia/commons/a/a7/React-icon.svg" width="30" height="30" className="d-inline-block-allign-top" alt="React logo" />
@@ -37,6 +36,9 @@ export const Layout = ({ children }) => {
       <Container id="home" className="App">
         {children}
       </Container>
+      <div style={{ backgroundColor: '#343A40', padding: '15px', marginTop: '30px', display: 'flex', flex: 1 }}>
+        <span style={{ marginLeft: 'auto', marginRight: 'auto', color: "rgba(255,255,255,0.5)" }}>Desenvolvido por <a style={{ color: "rgba(255,255,255,0.5)" }} href="https://github.com/gusflopes" target="_blank" rel="noreferrer noopener"><strong> Gustavo Lopes</strong></a> e <a style={{ color: "rgba(255,255,255,0.5)" }} href="http://www.lscont.com.br" target="_blank" rel="noreferrer noopener"><strong> LSCONT</strong></a>. Todos os direitos reservados.</span>
+      </div>
     </>
   )
 }
