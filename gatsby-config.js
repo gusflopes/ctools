@@ -34,7 +34,7 @@ module.exports = {
       options: {
         trackingId: "UA-157787410-2",
         head: false,
-        exclude: "/app/**",
+        exclude: ["/app/**"],
         pageTransitionDelay: 0,
         // optimizeId: "",
         // experimentId: "",
