@@ -1,6 +1,6 @@
 import React from 'react';
 import {Layout} from '../components/layout'
-import {Accordion, Card, Button, Badge, Row, Container} from 'react-bootstrap'
+import {Accordion, Card} from 'react-bootstrap'
 
 const InstructionsPage = () => {
 
@@ -70,11 +70,11 @@ const InstructionsPage = () => {
         </Card>
 
       </Accordion>
-      <div style={{marginTop: '30px'}}>
+      {/* <div style={{marginTop: '30px'}}>
         <h2>Subtitulo</h2>
         <p>Lorem ipsum lorem ipsum  lorem ipsum  lorem ipsum  lorem ipsum  lorem ipsum  lorem ipsum  lorem ipsum  lorem ipsum  lorem ipsum  lorem ipsum  lorem ipsum </p>
 
-      </div>
+      </div> */}
     </Layout>
   )
 }

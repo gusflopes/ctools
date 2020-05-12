@@ -1,26 +1,25 @@
-import React, { useEffect } from "react"
-import { Link, navigate } from 'gatsby'
+import React from "react"
+import { Link } from 'gatsby'
 import { Layout } from '../components/layout'
 import { Video } from '../components/video'
 import { Jumbotron, Button, Row, Col } from 'react-bootstrap'
-import axios from 'axios';
 import { FaFacebook, FaYoutube, FaLinkedin } from 'react-icons/fa/index.esm'
 import { ContactForm } from '../components/contact';
 
 export default () => {
-  useEffect(() => {
-    async function handleNavigate(destination) {
-      navigate(destination)
-    }
-  })
+  // useEffect(() => {
+  //   async function handleNavigate(destination) {
+  //     navigate(destination)
+  //   }
+  // })
 
-  async function lambdaRequest() {
-    // fetch("/.netlify/functions/hello")
-    //   .then(response => response.json())
-    //   .then(console.log)
-    const response = await axios.get('/.netlify/functions/hello')
-    console.log(response);
-  }
+  // async function lambdaRequest() {
+  //   // fetch("/.netlify/functions/hello")
+  //   //   .then(response => response.json())
+  //   //   .then(console.log)
+  //   const response = await axios.get('/.netlify/functions/hello')
+  //   console.log(response);
+  // }
 
   return (
     <Layout>
@@ -72,9 +71,8 @@ export default () => {
         </Col>
         <Col lg="1" sm="0" />
       </Row>
-      <div className="border-top my-4" />
-      <Button variant="success" onClick={lambdaRequest}>Lambda Function</Button>
-
+      {/* <div className="border-top my-4" />
+      <Button variant="success" onClick={lambdaRequest}>Lambda Function</Button> */}
 
     </Layout>
   )

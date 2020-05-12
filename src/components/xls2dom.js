@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from "react"
-import { Link } from 'gatsby'
-import { Layout } from '../components/layout'
-import axios from 'axios';
+// import axios from 'axios';
 import MyDropZone from '../components/dropzone';
 import { toast } from 'react-toastify'
 import { Row, Col, FormGroup, FormLabel, FormControl, FormText, Button } from 'react-bootstrap'
@@ -72,14 +70,14 @@ export default () => {
         return toast.success('Exportação finalizada.');
   }
 
-  async function lambdaRequest() {
-    // fetch("/.netlify/functions/hello")
-    //   .then(response => response.json())
-    //   .then(console.log)
+  // async function lambdaRequest() {
+  //   // fetch("/.netlify/functions/hello")
+  //   //   .then(response => response.json())
+  //   //   .then(console.log)
+  //   const response = await axios.get('/.netlify/functions/hello')
+  //   console.log(response);
+  // }
 
-    const response = await axios.get('/.netlify/functions/hello')
-    console.log(response);
-  }
   return (
     <>
       <Row style={{ marginTop: '15px' }}>

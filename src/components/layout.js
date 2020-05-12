@@ -25,10 +25,10 @@ export const Layout = ({ children }) => {
             <Link to="/sobre" className="nav-link">Sobre</Link>
 
           </Nav>
-          <Nav>
+          {/* <Nav>
             <Link to="/blog" className="nav-link">Blog</Link>
             <Link to="/app" className="nav-link">Área VIP</Link>
-          </Nav>
+          </Nav> */}
 
         </Navbar.Collapse>
 
